@@ -1,4 +1,4 @@
-# Nastaliq Urdu to Informal Romanized Urdu transliteration using a Language transformer
+# Nastaliq Urdu to Informal Romanized Urdu Transliteration Using a Language Transformer
 ## Description 
 The project is about romanizing Urdu written in [Nastaliq](https://en.wikipedia.org/wiki/Nastaliq) scipt. Though a formal system for romanizing nastaliq urdu exists, it uses characters other than the 26 letters of the latin alphabet. Moreover, on the internet nastaliq is often romanized using only the 26 letters of the roman alphabet without the use of formal rules. I wanted transliterate it into the core 26 latin characters to help with langauge learning. In this project I built a transformer model to accomplish this task. This github repository contains the code to preprocess the data, train a simple language [transformer model](https://arxiv.org/pdf/1706.03762.pdf), and containerize the model by using Docker. 
 
@@ -8,7 +8,24 @@ Install anaconda and make an anaconda environment. Make sure pip is installed an
 ```sh
 python -m pip install --user -r requirements.txt
 ```
+## Set up the file structure
 
+Make the following folders:.
+├── ...
+├── data                            
+│   ├── raw                         # Raw data from the Dakshina dataset and roman urdu parl go here
+│   ├── preprocessed                # After preprocessing, the data will live here
+│   └── tokenizers                  # Tokenizer files live here after preprocessing
+└── input
+│   ├── in_text                     # Folder that will contain the nastaliq_urdu.json file, i.e. the new data that we want to get romanized. This folder will be mounted to the docker container
+└── output
+│   ├── transliteration             # Folder that contains the transliterated output from the transformer models after inference. Will be a .json file with this structure: [{'nastaliq': ..., 'roman': ...}, ...]
+└── weights                         # checkpoints folder for saved models
+│   ├── tmodel_##.pt               
+└── runs                            # Folder that contains the tensorboard files.
+│   ├── file.ckpt               
+└── src                             # Source code
+│   ├── tmodel_##.pt               
 
 ### Get & Clean the Data
 
