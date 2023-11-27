@@ -10,8 +10,8 @@ python -m pip install --user -r requirements.txt
 ```
 ## Set up the file structure
 
+```bash
 Make the following folders:.
-├── ...
 ├── data                            
 │   ├── raw                         # Raw data from the Dakshina dataset and roman urdu parl go here
 │   ├── preprocessed                # After preprocessing, the data will live here
@@ -26,6 +26,7 @@ Make the following folders:.
 │   ├── file.ckpt               
 └── src                             # Source code
 │   ├── tmodel_##.pt               
+```
 
 ### Get & Clean the Data
 
